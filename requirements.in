@@ -1,0 +1,8 @@
+ibis-framework
+dask[dataframe]
+dask[array]
+multipledispatch>=0.6.0
+numpy>=1.11
+pandas>=1.1
+pytz>=2020.1
+toolz
