@@ -30,7 +30,6 @@ dev_requires = install_requires + [
     .splitlines()
     if line != "-r requirements.in"
 ]
-print(dev_requires)
 
 setup(
     name='ibis_dask',
