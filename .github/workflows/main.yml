@@ -29,6 +29,9 @@ jobs:
         - name: Run flake8
           run: |
             pytest
+        - name: Run flake8
+          run: |
+            mypy ibis_dask
         - name: Run tests
           run: |
             pytest
