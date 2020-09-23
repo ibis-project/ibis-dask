@@ -31,5 +31,4 @@ jobs:
         - name: Run mypy
           run: mypy ibis_dask
         - name: Run tests
-          run: |
-            pytest
+          run: pytest
