@@ -27,8 +27,7 @@ jobs:
             pip install -r requirements_locked.txt
             pip install .[develop]
         - name: Run flake8
-          run: |
-            pytest
+          run: flake8
         - name: Run flake8
           run: |
             mypy ibis_dask
