@@ -8,7 +8,7 @@ LONG_DESCRIPTION = """
 Ibis_dask is a dask plugin for Ibis.
 
 Ibis is a productivity-centric Python big data framework.
-See http://docs.ibis-project.org for more information.
+See http://ibis-project.org for more information.
 
 Dask is a flexible parallel computing library for analytics.
 See https://dask.org/ for more information.
