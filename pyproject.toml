@@ -2,4 +2,4 @@
 line-length = 79
 skip-string-normalization = true
 target-version = ["py37", "py38"]
-exclude = "(ibis-dask/_version|versioneer)\\.py"
+exclude = "(ibis_dask/_version|versioneer)\\.py"

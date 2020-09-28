@@ -18,17 +18,30 @@ jobs:
                 python-version: [3.7, 3.8]
         steps:
         - uses: actions/checkout@v2
-        - name: Set up Python ${{ matrix.python-version }}
-          uses: actions/setup-python@v2.1.2
+        - uses: conda-incubator/setup-miniconda@v1
           with:
+            auto-update-conda: true
+            activate-environment: ibis-dask-dev
+            environment-file: environment.yml
             python-version: ${{ matrix.python-version }}
+            auto-activate-base: false
         - name: Install ibis_dask with dependences
+          shell: bash -l {0}
           run: |
-            pip install -r requirements_locked.txt
-            pip install .[develop]
+            pip install .
         - name: Run flake8
+          shell: bash -l {0}
           run: flake8
+          if: always()
+        - name: Run black
+          shell: bash -l {0}
+          run: black --check .
+          if: always()
         - name: Run mypy
+          shell: bash -l {0}
           run: mypy ibis_dask
+          if: always()
         - name: Run tests
+          shell: bash -l {0}
           run: pytest
+          if: always()

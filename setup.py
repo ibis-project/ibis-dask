@@ -17,19 +17,22 @@ See https://dask.org/ for more information.
 install_requires = [
     line.strip()
     for line in pathlib.Path(__file__)
-    .parent.joinpath('requirements.in')
+    .parent.joinpath('requirements.txt')
     .read_text()
     .splitlines()
 ]
 
-dev_requires = install_requires + [
-    line.strip()
-    for line in pathlib.Path(__file__)
-    .parent.joinpath('requirements_dev.in')
-    .read_text()
-    .splitlines()
-    if line != "-r requirements.in"
+dev_requires = [
+    "black"
+    "click"
+    "pydocstyle==4.0.1"
+    "flake8"
+    "isort"
+    "mypy"
+    "pre-commit"
+    "pytest>=4.5"
 ]
+
 
 setup(
     name='ibis_dask',
@@ -39,12 +42,8 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     install_requires=install_requires,
     python_requires='>=3.7',
-    entry_points={
-        'ibis.backends': 'dask=ibis_dask'
-    },
-    extras_require={
-        'develop': dev_requires,
-    },
+    entry_points={'ibis.backends': 'dask=ibis_dask'},
+    extras_require={'develop': dev_requires},
     description="Dask backend for Ibis",
     long_description=LONG_DESCRIPTION,
     classifiers=[
